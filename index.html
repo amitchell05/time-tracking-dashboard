@@ -29,11 +29,13 @@
       defer
       src="https://unpkg.com/alpinejs@3.10.4/dist/cdn.min.js"
     ></script>
+    <script defer src="./script.js"></script>
   </head>
   <body>
     <div
       x-data="timeTrackerDashboard()"
       x-init="activities = await (await fetch('./data.json')).json();"
+      id="timeTrackerDashboard"
     >
       <article>
         <div>
@@ -48,31 +50,20 @@
             <li role="presentation">
               <button
                 role="tab"
-                href="#dailyPanel"
                 id="dailyTab"
                 aria-selected="true"
-                @click="displayTab('daily')"
+                aria-controls="dailyPanel"
               >
                 Daily
               </button>
             </li>
             <li role="presentation">
-              <button
-                role="tab"
-                href="#weeklyPanel"
-                id="weeklyTab"
-                @click="displayTab('weekly')"
-              >
+              <button role="tab" id="weeklyTab" aria-controls="weeklyPanel">
                 Weekly
               </button>
             </li>
             <li role="presentation">
-              <button
-                role="tab"
-                href="#monthlyPanel"
-                id="monthlyTab"
-                @click="displayTab('monthly')"
-              >
+              <button role="tab" id="monthlyTab" aria-controls="monthlyPanel">
                 Monthly
               </button>
             </li>
@@ -130,9 +121,9 @@
           <article>
             <h2 x-text="activity.title"></h2>
             <section>
-              <h3 x-text="activity.timeframes.weekly.current + 'hrs'"></h3>
+              <h3 x-text="activity.timeframes.monthly.current + 'hrs'"></h3>
               <p
-                x-text="'Last Month - ' + activity.timeframes.weekly.previous + 'hrs'"
+                x-text="'Last Month - ' + activity.timeframes.monthly.previous + 'hrs'"
               ></p>
             </section>
           </article>

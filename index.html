@@ -43,27 +43,101 @@
             alt="Profile picture of Jeremy Robson"
           />
         </div>
-        <div>
-          <button @click="displayTab('daily')">Daily</button>
-          <button @click="displayTab('monthly')">Weekly</button>
-          <button @click="displayTab('weekly')">Monthly</button>
-        </div>
+        <nav>
+          <ul role="tablist" aria-orientation="horizontal">
+            <li role="presentation">
+              <button
+                role="tab"
+                href="#dailyPanel"
+                id="dailyTab"
+                aria-selected="true"
+                @click="displayTab('daily')"
+              >
+                Daily
+              </button>
+            </li>
+            <li role="presentation">
+              <button
+                role="tab"
+                href="#weeklyPanel"
+                id="weeklyTab"
+                @click="displayTab('weekly')"
+              >
+                Weekly
+              </button>
+            </li>
+            <li role="presentation">
+              <button
+                role="tab"
+                href="#monthlyPanel"
+                id="monthlyTab"
+                @click="displayTab('monthly')"
+              >
+                Monthly
+              </button>
+            </li>
+          </ul>
+        </nav>
       </article>
 
-      <template x-for="(activity, index) in activities" :key="index">
-        <article>
-          <h2 x-text="activity.title"></h2>
-          <template
-            x-for="[time, value] in Object.entries(activity.timeframes)"
-            :key="time"
-          >
-            <section x-show="activeTab === time">
-              <h3 x-text="value.current + 'hrs'"></h3>
-              <p x-text="value.previous + 'hrs'"></p>
+      <div
+        id="dailyPanel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="dailyTab"
+      >
+        <template x-for="activity in activities">
+          <article>
+            <h2 x-text="activity.title"></h2>
+            <section>
+              <h3 x-text="activity.timeframes.daily.current + 'hrs'"></h3>
+              <p
+                x-text="'Yesterday - ' + activity.timeframes.daily.previous + 'hrs'"
+              ></p>
             </section>
-          </template>
-        </article>
-      </template>
+          </article>
+        </template>
+      </div>
+
+      <div
+        id="weeklyPanel"
+        role="tabpanel"
+        tabindex="-1"
+        aria-labelledby="weeklyTab"
+        hidden
+      >
+        <template x-for="activity in activities">
+          <article>
+            <h2 x-text="activity.title"></h2>
+            <section>
+              <h3 x-text="activity.timeframes.weekly.current + 'hrs'"></h3>
+              <p
+                x-text="'Last Week - ' + activity.timeframes.weekly.previous + 'hrs'"
+              ></p>
+            </section>
+          </article>
+        </template>
+      </div>
+
+      <div
+        id="monthlyPanel"
+        role="tabpanel"
+        tabindex="-1"
+        aria-labelledby="monthlyTab"
+        hidden
+      >
+        <template x-for="activity in activities">
+          <article>
+            <h2 x-text="activity.title"></h2>
+            <section>
+              <h3 x-text="activity.timeframes.weekly.current + 'hrs'"></h3>
+              <p
+                x-text="'Last Month - ' + activity.timeframes.weekly.previous + 'hrs'"
+              ></p>
+            </section>
+          </article>
+        </template>
+      </div>
     </div>
 
     <div class="attribution">

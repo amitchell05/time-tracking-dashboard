@@ -1,153 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
-    <title>Frontend Mentor | Time tracking dashboard</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+  <title>Frontend Mentor | Time tracking dashboard</title>
 
-    <script
-      defer
-      src="https://unpkg.com/alpinejs@3.10.4/dist/cdn.min.js"
-    ></script>
-    <script defer src="./script.js"></script>
-  </head>
-  <body>
-    <div
-      x-data="timeTrackerDashboard()"
-      x-init="activities = await (await fetch('./data.json')).json();"
-      id="timeTrackerDashboard"
-    >
-      <article>
-        <div>
-          <h1>Report for Jeremy Robson</h1>
-          <img
-            src="./images/image-jeremy.png"
-            alt="Profile picture of Jeremy Robson"
-          />
-        </div>
-        <nav>
-          <ul role="tablist" aria-orientation="horizontal">
-            <li role="presentation">
-              <button
-                role="tab"
-                id="dailyTab"
-                aria-selected="true"
-                aria-controls="dailyPanel"
-              >
-                Daily
-              </button>
-            </li>
-            <li role="presentation">
-              <button role="tab" id="weeklyTab" aria-controls="weeklyPanel">
-                Weekly
-              </button>
-            </li>
-            <li role="presentation">
-              <button role="tab" id="monthlyTab" aria-controls="monthlyPanel">
-                Monthly
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </article>
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
 
-      <div
-        id="dailyPanel"
-        role="tabpanel"
-        tabindex="0"
-        aria-labelledby="dailyTab"
-      >
-        <template x-for="activity in activities">
-          <article>
-            <h2 x-text="activity.title"></h2>
-            <section>
-              <h3 x-text="activity.timeframes.daily.current + 'hrs'"></h3>
-              <p
-                x-text="'Yesterday - ' + activity.timeframes.daily.previous + 'hrs'"
-              ></p>
-            </section>
-          </article>
-        </template>
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+
+  <script defer src="https://unpkg.com/alpinejs@3.10.4/dist/cdn.min.js"></script>
+  <script defer src="./script.js"></script>
+</head>
+
+<body>
+  <div x-data="timeTrackerDashboard()" x-init="activities = await (await fetch('./data.json')).json();"
+    id="timeTrackerDashboard">
+    <article>
+      <div>
+        <h1>Report for Jeremy Robson</h1>
+        <img src="./images/image-jeremy.png" alt="Profile picture of Jeremy Robson">
       </div>
+      <nav>
+        <ul role="tablist" aria-orientation="horizontal">
+          <li role="presentation">
+            <button role="tab" id="dailyTab" aria-selected="true" aria-controls="dailyPanel">
+              Daily
+            </button>
+          </li>
+          <li role="presentation">
+            <button role="tab" id="weeklyTab" aria-controls="weeklyPanel">
+              Weekly
+            </button>
+          </li>
+          <li role="presentation">
+            <button role="tab" id="monthlyTab" aria-controls="monthlyPanel">
+              Monthly
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </article>
 
-      <div
-        id="weeklyPanel"
-        role="tabpanel"
-        tabindex="-1"
-        aria-labelledby="weeklyTab"
-        hidden
-      >
-        <template x-for="activity in activities">
-          <article>
-            <h2 x-text="activity.title"></h2>
-            <section>
-              <h3 x-text="activity.timeframes.weekly.current + 'hrs'"></h3>
-              <p
-                x-text="'Last Week - ' + activity.timeframes.weekly.previous + 'hrs'"
-              ></p>
-            </section>
-          </article>
-        </template>
-      </div>
-
-      <div
-        id="monthlyPanel"
-        role="tabpanel"
-        tabindex="-1"
-        aria-labelledby="monthlyTab"
-        hidden
-      >
-        <template x-for="activity in activities">
-          <article>
-            <h2 x-text="activity.title"></h2>
-            <section>
-              <h3 x-text="activity.timeframes.monthly.current + 'hrs'"></h3>
-              <p
-                x-text="'Last Month - ' + activity.timeframes.monthly.previous + 'hrs'"
-              ></p>
-            </section>
-          </article>
-        </template>
-      </div>
+    <div id="dailyPanel" role="tabpanel" tabindex="0" aria-labelledby="dailyTab">
+      <template x-for="activity in activities">
+        <article>
+          <h2 x-text="activity.title"></h2>
+          <section>
+            <h3 x-text="activity.timeframes.daily.current + 'hrs'"></h3>
+            <p x-text="'Yesterday - ' + activity.timeframes.daily.previous + 'hrs'"></p>
+          </section>
+        </article>
+      </template>
     </div>
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+    <div id="weeklyPanel" role="tabpanel" tabindex="-1" aria-labelledby="weeklyTab" hidden>
+      <template x-for="activity in activities">
+        <article>
+          <h2 x-text="activity.title"></h2>
+          <section>
+            <h3 x-text="activity.timeframes.weekly.current + 'hrs'"></h3>
+            <p x-text="'Last Week - ' + activity.timeframes.weekly.previous + 'hrs'"></p>
+          </section>
+        </article>
+      </template>
     </div>
 
-    <script>
-      function timeTrackerDashboard() {
-        return {
-          activities: [],
-          activeTab: "daily",
-          displayTab(timeframe) {
-            this.activeTab = timeframe;
-          },
-        };
-      }
-    </script>
-  </body>
+    <div id="monthlyPanel" role="tabpanel" tabindex="-1" aria-labelledby="monthlyTab" hidden>
+      <template x-for="activity in activities">
+        <article>
+          <h2 x-text="activity.title"></h2>
+          <section>
+            <h3 x-text="activity.timeframes.monthly.current + 'hrs'"></h3>
+            <p x-text="'Last Month - ' + activity.timeframes.monthly.previous + 'hrs'"></p>
+          </section>
+        </article>
+      </template>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your
+      Name Here</a>.
+  </div>
+
+  <script>
+    function timeTrackerDashboard() {
+      return {
+        activities: [],
+        activeTab: "daily",
+        displayTab(timeframe) {
+          this.activeTab = timeframe;
+        },
+      };
+    }
+  </script>
+</body>
+
 </html>

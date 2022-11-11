@@ -1,6 +1,9 @@
 window.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll('[role="tab"]');
   const tabList = document.querySelector('[role="tablist"]');
+  const activeTab = document.querySelector('[aria-selected="true"]');
+
+  activeTab.classList.add("tab--selected");
 
   // Add a click event handler to each tab
   tabs.forEach((tab) => {
@@ -18,8 +21,14 @@ function changeTabs(e) {
     .querySelectorAll('[aria-selected="true"]')
     .forEach((t) => t.setAttribute("aria-selected", false));
 
+  // Remove font color from previously selected
+  tabListEl.querySelector(".tab--selected").classList.remove("tab--selected");
+
   // Set this tab as selected
   target.setAttribute("aria-selected", true);
+
+  // Change font color of selected tab
+  target.classList.add("tab--selected");
 
   // Hide all tab panels
   container

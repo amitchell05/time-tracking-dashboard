@@ -1,0 +1,64 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+}
+
+body {
+  background-color: hsl(226, 43%, 10%);
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  color: hsl(236, 100%, 87%);
+}
+
+/* Time Tracker Dashboard */
+/* .time-tracker-dashboard {} */
+
+/* Profile Card */
+.profile-card {
+  background-color: hsl(246, 80%, 60%);
+}
+
+.profile-card h1 {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.profile-card span {
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.profile-card img {
+  border: 0.25rem solid #ffffff;
+  border-radius: 50%;
+  width: 4.625rem;
+  height: 4.5rem;
+}
+
+/* Timeframe Tabs */
+.timeframe-tabs {
+  background-color: hsl(235, 46%, 20%);
+}
+
+.timeframe-tabs ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.timeframe-tabs li {
+  list-style-type: none;
+}
+
+.timeframe-tabs button {
+  background-color: unset;
+  border: unset;
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: hsl(235, 45%, 61%);
+}
+
+.timeframe-tabs button.tab--selected {
+  color: #ffffff;
+}

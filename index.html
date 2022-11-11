@@ -7,6 +7,10 @@
   <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 
   <title>Frontend Mentor | Time tracking dashboard</title>
 
@@ -28,13 +32,13 @@
 
 <body>
   <div x-data="timeTrackerDashboard()" x-init="activities = await (await fetch('./data.json')).json();"
-    id="timeTrackerDashboard">
+    class="time-tracker-dashboard" id="timeTrackerDashboard">
     <article>
-      <div>
-        <h1>Report for Jeremy Robson</h1>
+      <div class="profile-card">
+        <h1>Report for <span>Jeremy Robson</span></h1>
         <img src="./images/image-jeremy.png" alt="Profile picture of Jeremy Robson">
       </div>
-      <nav>
+      <nav class="timeframe-tabs">
         <ul role="tablist" aria-orientation="horizontal">
           <li role="presentation">
             <button role="tab" id="dailyTab" aria-selected="true" aria-controls="dailyPanel">
@@ -94,18 +98,14 @@
 
   <div class="attribution">
     Challenge by
-    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your
-      Name Here</a>.
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
+      href="https://www.frontendmentor.io/profile/amitchell05">Angela Mitchell</a>.
   </div>
 
   <script>
     function timeTrackerDashboard() {
       return {
         activities: [],
-        activeTab: "daily",
-        displayTab(timeframe) {
-          this.activeTab = timeframe;
-        },
       };
     }
   </script>

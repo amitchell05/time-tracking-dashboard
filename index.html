@@ -31,33 +31,46 @@
 </head>
 
 <body>
-  <div x-data="timeTrackerDashboard()" x-init="activities = await (await fetch('./data.json')).json();"
-    class="time-tracker-dashboard" id="timeTrackerDashboard">
+  <header>
     <article>
-      <div class="profile-card">
+      <div>
         <h1>Report for <span>Jeremy Robson</span></h1>
         <img src="./images/image-jeremy.png" alt="Profile picture of Jeremy Robson">
       </div>
-      <nav class="timeframe-tabs">
-        <ul role="tablist" aria-orientation="horizontal">
-          <li role="presentation">
-            <button role="tab" id="dailyTab" aria-selected="true" aria-controls="dailyPanel">
-              Daily
-            </button>
+      <nav>
+        <ul>
+          <li>
+            <button>Daily</button>
           </li>
-          <li role="presentation">
-            <button role="tab" id="weeklyTab" aria-controls="weeklyPanel">
-              Weekly
-            </button>
+          <li>
+            <button>Weekly</button>
           </li>
-          <li role="presentation">
-            <button role="tab" id="monthlyTab" aria-controls="monthlyPanel">
-              Monthly
-            </button>
+          <li>
+            <button>Monthly</button>
           </li>
         </ul>
       </nav>
     </article>
+  </header>
+
+  <main x-data="timeTrackerDashboard()" x-init="activities = await (await fetch('./data.json')).json();"
+    id="timeTrackerDashboard">
+    <template x-for="activity in activities">
+      <article>
+        <h2 x-text="activity.title"></h2>
+        <template x-for="timeframe in activity.timeframes">
+          <section>
+            <h3 x-text="timeframe.current + 'hrs'"></h3>
+            <p x-text="'- ' + timeframe.previous + 'hrs'"></p>
+            <!-- <p x-text="'Yesterday - ' + activity.timeframes.daily.previous + 'hrs'"></p> -->
+          </section>
+        </template>
+      </article>
+    </template>
+  </main>
+  <!-- <div x-data="timeTrackerDashboard()" x-init="activities = await (await fetch('./data.json')).json();"
+    class="time-tracker-dashboard" id="timeTrackerDashboard">
+    
 
     <div id="dailyPanel" role="tabpanel" tabindex="0" aria-labelledby="dailyTab">
       <template x-for="activity in activities">
@@ -94,13 +107,13 @@
         </article>
       </template>
     </div>
-  </div>
+  </div> -->
 
-  <div class="attribution">
+  <footer class="attribution">
     Challenge by
     <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
       href="https://www.frontendmentor.io/profile/amitchell05">Angela Mitchell</a>.
-  </div>
+  </footer>
 
   <script>
     function timeTrackerDashboard() {

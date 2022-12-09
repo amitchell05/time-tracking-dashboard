@@ -1,6 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll('[role="tab"]');
-  const tabList = document.querySelector('[role="tablist"]');
   const activeTab = document.querySelector('[aria-selected="true"]');
 
   activeTab.classList.add("tab--selected");
@@ -33,10 +32,10 @@ function changeTabs(e) {
   // Hide all tab panels
   container
     .querySelectorAll('[role="tabpanel"]')
-    .forEach((p) => p.setAttribute("hidden", true));
+    .forEach((panel) => panel.classList.add("visually-hidden"));
 
   // Show the selected panel
   container.parentNode
     .querySelector(`#${target.getAttribute("aria-controls")}`)
-    .removeAttribute("hidden");
+    .classList.remove("visually-hidden");
 }

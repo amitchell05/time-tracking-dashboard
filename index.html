@@ -63,10 +63,15 @@
     <section id="dailyPanel" role="tabpanel" tabindex="0" aria-labelledby="dailyTab">
       <h2 class="visually-hidden">Daily Times Panel</h2>
       <template x-for="activity in activities">
-        <article>
-          <h2 x-text="activity.title"></h2>
+        <article class="activity-card">
           <section>
+            <h2 x-text="activity.title"></h2>
             <h3 x-text="activity.timeframes.daily.current + 'hrs'"></h3>
+          </section>
+          <section>
+            <button type="button" class="activity-card-btn">
+              <img src="./images/icon-ellipsis.svg" alt="">
+            </button>
             <p x-text="'Yesterday - ' + activity.timeframes.daily.previous + 'hrs'"></p>
           </section>
         </article>
@@ -76,10 +81,13 @@
     <section id="weeklyPanel" role="tabpanel" tabindex="-1" aria-labelledby="weeklyTab" class="visually-hidden">
       <h2 class="visually-hidden">Weekly Times Panel</h2>
       <template x-for="activity in activities">
-        <article>
+        <article class="activity-card">
           <h2 x-text="activity.title"></h2>
           <section>
             <h3 x-text="activity.timeframes.weekly.current + 'hrs'"></h3>
+            <button type="button" class="activity-card-btn">
+              <img src="./images/icon-ellipsis.svg" alt="">
+            </button>
             <p x-text="'Last Week - ' + activity.timeframes.weekly.previous + 'hrs'"></p>
           </section>
         </article>
@@ -89,10 +97,13 @@
     <section id="monthlyPanel" role="tabpanel" tabindex="-1" aria-labelledby="monthlyTab" class="visually-hidden">
       <h2 class="visually-hidden">Weekly Times Panel</h2>
       <template x-for="activity in activities">
-        <article>
+        <article class="activity-card">
           <h2 x-text="activity.title"></h2>
           <section>
             <h3 x-text="activity.timeframes.monthly.current + 'hrs'"></h3>
+            <button type="button" class="activity-card-btn">
+              <img src="./images/icon-ellipsis.svg" alt="">
+            </button>
             <p x-text="'Last Month - ' + activity.timeframes.monthly.previous + 'hrs'"></p>
           </section>
         </article>

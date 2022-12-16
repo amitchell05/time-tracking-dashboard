@@ -1,13 +1,16 @@
 * {
   margin: 0 auto;
   padding: 0;
+  font-family: "Rubik", sans-serif;
 }
 
 body {
   background-color: hsl(226, 43%, 10%);
-  font-family: "Rubik", sans-serif;
-  font-weight: 300;
   color: hsl(236, 100%, 87%);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 /* Time Tracker Dashboard */
@@ -18,21 +21,21 @@ body {
   background-color: hsl(246, 80%, 60%);
 }
 
-.profile-card h1 {
-  font-weight: 300;
+.profile-card h2 {
   font-size: 1rem;
+  font-weight: 400;
 }
 
 .profile-card span {
-  font-weight: 300;
   font-size: 1.5rem;
-  color: #ffffff;
+  font-weight: 300;
+  color: hsl(0, 0%, 100%);
 }
 
 .profile-card img {
-  border: 0.25rem solid #ffffff;
+  border: 0.25rem solid hsl(0, 0%, 100%);
   border-radius: 50%;
-  width: 4.625rem;
+  width: 4.5rem;
   height: 4.5rem;
 }
 
@@ -54,13 +57,26 @@ body {
 .timeframe-tabs button {
   background-color: unset;
   border: unset;
-  font-size: 1.125rem;
-  font-weight: 300;
   color: hsl(235, 45%, 61%);
+  font-size: 1rem;
 }
 
 .timeframe-tabs button.tab--selected {
-  color: #ffffff;
+  color: hsl(0, 0%, 100%);
+}
+
+/* Activity Cards */
+.activity-card {
+  background-color: hsl(235, 46%, 20%);
+}
+
+.activity-card-btn {
+  background-color: unset;
+  border: none;
+}
+
+.activity-card-btn:hover {
+  cursor: pointer;
 }
 
 /* Resource: https://a11y-guidelines.orange.com/en/web/components-examples/accessible-hiding/ */

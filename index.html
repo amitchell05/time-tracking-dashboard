@@ -32,14 +32,14 @@
 
 <body>
   <div x-data="timeTrackerDashboard()" x-init="activities = await (await fetch('./data.json')).json();"
-    class="time-tracker-dashboard" id="timeTrackerDashboard">
+    id="timeTrackerDashboard">
     <section>
       <h1 class="visually-hidden">Time Tracker Dashboard</h1>
-      <article class="profile-card">
+      <article>
         <h2>Report for <span>Jeremy Robson</span></h2>
         <img src="./images/image-jeremy.png" alt="Profile picture of Jeremy Robson">
       </article>
-      <nav class="timeframe-tabs">
+      <nav>
         <ul role="tablist" aria-orientation="horizontal">
           <li role="presentation">
             <button role="tab" id="dailyTab" aria-selected="true" aria-controls="dailyPanel">
@@ -60,16 +60,16 @@
       </nav>
     </section>
 
-    <section id="dailyPanel" role="tabpanel" tabindex="0" aria-labelledby="dailyTab">
+    <section id="dailyPanel" role="tabpanel" tabindex="0" aria-labelledby="dailyTab" class="panel visually-hidden">
       <h2 class="visually-hidden">Daily Times Panel</h2>
       <template x-for="activity in activities">
-        <article class="activity-card">
+        <article>
           <section>
             <h2 x-text="activity.title"></h2>
             <h3 x-text="activity.timeframes.daily.current + 'hrs'"></h3>
           </section>
           <section>
-            <button type="button" class="activity-card-btn">
+            <button type="button">
               <img src="./images/icon-ellipsis.svg" alt="">
             </button>
             <p x-text="'Yesterday - ' + activity.timeframes.daily.previous + 'hrs'"></p>
@@ -78,14 +78,16 @@
       </template>
     </section>
 
-    <section id="weeklyPanel" role="tabpanel" tabindex="-1" aria-labelledby="weeklyTab" class="visually-hidden">
+    <section id="weeklyPanel" role="tabpanel" tabindex="-1" aria-labelledby="weeklyTab" class="panel">
       <h2 class="visually-hidden">Weekly Times Panel</h2>
       <template x-for="activity in activities">
-        <article class="activity-card">
-          <h2 x-text="activity.title"></h2>
+        <article>
           <section>
+            <h2 x-text="activity.title"></h2>
             <h3 x-text="activity.timeframes.weekly.current + 'hrs'"></h3>
-            <button type="button" class="activity-card-btn">
+          </section>
+          <section>
+            <button type="button">
               <img src="./images/icon-ellipsis.svg" alt="">
             </button>
             <p x-text="'Last Week - ' + activity.timeframes.weekly.previous + 'hrs'"></p>
@@ -94,15 +96,17 @@
       </template>
     </section>
 
-    <section id="monthlyPanel" role="tabpanel" tabindex="-1" aria-labelledby="monthlyTab" class="visually-hidden">
+    <section id="monthlyPanel" role="tabpanel" tabindex="-1" aria-labelledby="monthlyTab" class="panel visually-hidden">
       <h2 class="visually-hidden">Weekly Times Panel</h2>
       <template x-for="activity in activities">
-        <article class="activity-card">
-          <h2 x-text="activity.title"></h2>
+        <article>
           <section>
+            <h2 x-text="activity.title"></h2>
             <h3 x-text="activity.timeframes.monthly.current + 'hrs'"></h3>
-            <button type="button" class="activity-card-btn">
-              <img src="./images/icon-ellipsis.svg" alt="">
+          </section>
+          <section>
+            <button type="button">
+              <img src="./images/icon-ellipsis.svg" alt="ellipsis">
             </button>
             <p x-text="'Last Month - ' + activity.timeframes.monthly.previous + 'hrs'"></p>
           </section>

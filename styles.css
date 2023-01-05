@@ -11,7 +11,7 @@ body {
   font-size: 16px;
 }
 
-/* Time Tracker Dashboard */
+/* Time Tracker Dashboard + Layout */
 #timeTrackerDashboard {
   margin: 5rem 1.5rem;
   display: grid;
@@ -19,9 +19,21 @@ body {
 }
 
 /* Panel layout */
+#timeTrackerDashboard,
+.panel {
+  gap: 1.875rem;
+}
+
 .panel {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 47.938rem) {
+  #timeTrackerDashboard,
+  .panel {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Shared card/panel styles */
@@ -51,6 +63,13 @@ button.tab--selected {
 
 .profile-card ul {
   list-style-type: none;
+}
+
+.profile-card img {
+  border: 0.25rem solid hsl(0, 0%, 100%);
+  border-radius: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 
 /* Panels */

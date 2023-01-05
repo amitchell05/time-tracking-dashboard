@@ -1,121 +1,63 @@
 * {
-  margin: 0 auto;
+  box-sizing: border-box;
   padding: 0;
-  font-family: "Rubik", sans-serif;
-  font-weight: 300;
-  font-size: 1rem;
+  margin: 0;
 }
 
 body {
   background-color: hsl(226, 43%, 10%);
   color: hsl(236, 100%, 87%);
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  margin-left: 5%;
-  margin-right: 5%;
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+}
+
+/* Time Tracker Dashboard */
+#timeTrackerDashboard {
+  margin: 5rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+/* Panel layout */
+.panel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Shared card/panel styles */
+button {
+  background-color: unset;
+  border: none;
+  color: hsl(236, 100%, 87%);
+  font-family: "Rubik", sans-serif;
+  font-size: 1.125rem;
 }
 
 button:hover {
   cursor: pointer;
 }
 
-/* Panels + Cards? */
+.profile-card,
 .panel article {
   background-color: hsl(235, 46%, 20%);
-  border-radius: 0.625rem;
+  border-radius: 0.875rem;
+  padding: 1.5rem;
 }
-
-.panel article h2 {
-  font-size: 1.125rem;
-}
-
-.panel h3 {
-  font-size: 1.5rem;
-}
-
-.panel p {
-  font-size: 0.875rem;
-}
-
-.panel img {
-  width: 1.5rem;
-}
-
-.panel button {
-  background-color: unset;
-  border: none;
-}
-
-/* Time Tracker Dashboard */
-/* .time-tracker-dashboard {} */
 
 /* Profile Card */
-/* .profile-card {
-  background-color: hsl(246, 80%, 60%);
-}
-
-.profile-card h2 {
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-.profile-card span {
-  font-size: 1.5rem;
-  font-weight: 300;
+button.tab--selected {
   color: hsl(0, 0%, 100%);
 }
 
-.profile-card img {
-  border: 0.25rem solid hsl(0, 0%, 100%);
-  border-radius: 50%;
-  width: 4.5rem;
-  height: 4.5rem;
-} */
-
-/* Timeframe Tabs */
-/* .timeframe-tabs {
-  background-color: hsl(235, 46%, 20%);
-}
-
-.timeframe-tabs ul {
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.timeframe-tabs li {
+.profile-card ul {
   list-style-type: none;
 }
 
-.timeframe-tabs button {
-  background-color: unset;
-  border: unset;
-  color: hsl(235, 45%, 61%);
-  font-size: 1rem;
-}
-
-.timeframe-tabs button.tab--selected {
-  color: hsl(0, 0%, 100%);
-} */
-
-/* Activity Cards */
-/* .activity-card {
-  background-color: hsl(235, 46%, 20%);
-}
-
-.activity-card-btn {
-  background-color: unset;
-  border: none;
-}
-
-.activity-card-btn:hover {
-  cursor: pointer;
-} */
+/* Panels */
 
 /* Resource: https://a11y-guidelines.orange.com/en/web/components-examples/accessible-hiding/ */
 
 .visually-hidden {
-  position: absolute;
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;

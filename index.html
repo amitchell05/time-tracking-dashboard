@@ -33,7 +33,7 @@
 <body>
   <div x-data="timeTrackerDashboard()" x-init="activities = await (await fetch('./data.json')).json();"
     id="timeTrackerDashboard">
-    <section>
+    <section class="profile-card">
       <h1 class="visually-hidden">Time Tracker Dashboard</h1>
       <article>
         <h2>Report for <span>Jeremy Robson</span></h2>

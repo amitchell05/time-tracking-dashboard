@@ -68,7 +68,7 @@
             <img :src="addSvg(activity.title)" :alt="convertTitle(activity.title) + '-icon'">
           </section>
           <section>
-            <article class="card-decorator">
+            <article class="card-decoration">
               <h2 x-text="activity.title"></h2>
               <h3 x-text="activity.timeframes.daily.current + 'hrs'"></h3>
             </article>
@@ -87,7 +87,7 @@
       <h2 class="visually-hidden">Weekly Times Panel</h2>
       <template x-for="activity in activities" :key="convertTitle(activity.title)">
         <article class="card" :class="convertTitle(activity.title)">
-          <section class="card-decorator">
+          <section class="card-decoration">
             <img :src="addSvg(activity.title)" :alt="convertTitle(activity.title) + '-icon'">
           </section>
           <section class="card-body">
@@ -110,7 +110,7 @@
       <h2 class="visually-hidden">Weekly Times Panel</h2>
       <template x-for="activity in activities" :key="convertTitle(activity.title)">
         <article class="card" :class="convertTitle(activity.title)">
-          <section class="card-decorator">
+          <section class="card-decoration">
             <img :src="addSvg(activity.title)" :alt="convertTitle(activity.title) + '-icon'">
           </section>
           <section class="card-body">

@@ -62,17 +62,22 @@
 
     <section id="dailyPanel" role="tabpanel" tabindex="0" aria-labelledby="dailyTab" class="panel visually-hidden">
       <h2 class="visually-hidden">Daily Times Panel</h2>
-      <template x-for="activity in activities">
-        <article>
+      <template x-for="activity in activities" :key="convertTitle(activity.title)">
+        <article class="card" :class="convertTitle(activity.title)">
           <section>
-            <h2 x-text="activity.title"></h2>
-            <h3 x-text="activity.timeframes.daily.current + 'hrs'"></h3>
+            <img :src="addSvg(activity.title)" :alt="convertTitle(activity.title) + '-icon'">
           </section>
           <section>
-            <button type="button">
-              <img src="./images/icon-ellipsis.svg" alt="">
-            </button>
-            <p x-text="'Yesterday - ' + activity.timeframes.daily.previous + 'hrs'"></p>
+            <article class="card-decorator">
+              <h2 x-text="activity.title"></h2>
+              <h3 x-text="activity.timeframes.daily.current + 'hrs'"></h3>
+            </article>
+            <article class="card-body">
+              <button type="button">
+                <img src="./images/icon-ellipsis.svg" alt="ellipsis">
+              </button>
+              <p x-text="'Yesterday - ' + activity.timeframes.daily.previous + 'hrs'"></p>
+            </article>
           </section>
         </article>
       </template>
@@ -80,17 +85,22 @@
 
     <section id="weeklyPanel" role="tabpanel" tabindex="-1" aria-labelledby="weeklyTab" class="panel">
       <h2 class="visually-hidden">Weekly Times Panel</h2>
-      <template x-for="activity in activities">
-        <article>
-          <section>
-            <h2 x-text="activity.title"></h2>
-            <h3 x-text="activity.timeframes.weekly.current + 'hrs'"></h3>
+      <template x-for="activity in activities" :key="convertTitle(activity.title)">
+        <article class="card" :class="convertTitle(activity.title)">
+          <section class="card-decorator">
+            <img :src="addSvg(activity.title)" :alt="convertTitle(activity.title) + '-icon'">
           </section>
-          <section>
-            <button type="button">
-              <img src="./images/icon-ellipsis.svg" alt="">
-            </button>
-            <p x-text="'Last Week - ' + activity.timeframes.weekly.previous + 'hrs'"></p>
+          <section class="card-body">
+            <article>
+              <h2 x-text="activity.title"></h2>
+              <h3 x-text="activity.timeframes.weekly.current + 'hrs'"></h3>
+            </article>
+            <article>
+              <button type="button">
+                <img src="./images/icon-ellipsis.svg" alt="">
+              </button>
+              <p x-text="'Last Week - ' + activity.timeframes.weekly.previous + 'hrs'"></p>
+            </article>
           </section>
         </article>
       </template>
@@ -98,17 +108,22 @@
 
     <section id="monthlyPanel" role="tabpanel" tabindex="-1" aria-labelledby="monthlyTab" class="panel visually-hidden">
       <h2 class="visually-hidden">Weekly Times Panel</h2>
-      <template x-for="activity in activities">
-        <article>
-          <section>
-            <h2 x-text="activity.title"></h2>
-            <h3 x-text="activity.timeframes.monthly.current + 'hrs'"></h3>
+      <template x-for="activity in activities" :key="convertTitle(activity.title)">
+        <article class="card" :class="convertTitle(activity.title)">
+          <section class="card-decorator">
+            <img :src="addSvg(activity.title)" :alt="convertTitle(activity.title) + '-icon'">
           </section>
-          <section>
-            <button type="button">
-              <img src="./images/icon-ellipsis.svg" alt="ellipsis">
-            </button>
-            <p x-text="'Last Month - ' + activity.timeframes.monthly.previous + 'hrs'"></p>
+          <section class="card-body">
+            <article>
+              <h2 x-text="activity.title"></h2>
+              <h3 x-text="activity.timeframes.monthly.current + 'hrs'"></h3>
+            </article>
+            <article>
+              <button type="button">
+                <img src="./images/icon-ellipsis.svg" alt="ellipsis">
+              </button>
+              <p x-text="'Last Month - ' + activity.timeframes.monthly.previous + 'hrs'"></p>
+            </article>
           </section>
         </article>
       </template>
@@ -125,6 +140,15 @@
     function timeTrackerDashboard() {
       return {
         activities: [],
+        convertTitle(title) {
+          if (title.includes(' ')) {
+            title = title.replace(' ', '-');
+          }
+          return title.toLowerCase();
+        },
+        addSvg(title) {
+          return `./images/icon-${this.convertTitle(title)}.svg`;
+        }
       };
     }
   </script>

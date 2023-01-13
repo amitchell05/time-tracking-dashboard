@@ -82,8 +82,26 @@ button.tab--selected {
   grid-gap: 0.625rem;
 }
 
-.profile-card img {
-  border: 0.25rem solid hsl(0, 0%, 100%);
+.profile-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 1rem;
+  align-items: center;
+}
+
+.profile-details-heading h2 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.profile-details-heading span {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color:hsl(0, 0%, 100%);
+}
+
+.profile-details img {
+  border: 0.188rem solid hsl(0, 0%, 100%);
   border-radius: 50%;
   width: 4.5rem;
   height: 4.5rem;
@@ -95,6 +113,16 @@ button.tab--selected {
     grid-template-rows: repeat(3, minmax(0, 1fr));
     justify-items: left;
     grid-gap: 0.938rem;
+  }
+
+  .profile-details {
+    grid-template-columns: unset;
+    grid-gap: 1rem;
+    align-items: center;
+  }
+
+  .profile-details-heading span {
+    font-size: 2.25rem;
   }
 }
 

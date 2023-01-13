@@ -87,7 +87,7 @@
     <section id="weeklyPanel" role="tabpanel" tabindex="-1" aria-labelledby="weeklyTab" class="panel">
       <h2 class="visually-hidden">Weekly Times Panel</h2>
       <template x-for="activity in activities" :key="convertTitle(activity.title)">
-        <article class="card">
+        <article class="card" :class="convertTitle(activity.title)">
           <div class="card-icon">
             <img :src="addSvg(activity.title)" :alt="convertTitle(activity.title) + '-icon'">
           </div>
@@ -111,7 +111,7 @@
     <section id="monthlyPanel" role="tabpanel" tabindex="-1" aria-labelledby="monthlyTab" class="panel visually-hidden">
       <h2 class="visually-hidden">Monthly Times Panel</h2>
       <template x-for="activity in activities" :key="convertTitle(activity.title)">
-        <article class="card">
+        <article class="card" :class="convertTitle(activity.title)">
           <div class="card-icon">
             <img :src="addSvg(activity.title)" :alt="convertTitle(activity.title) + '-icon'">
           </div>

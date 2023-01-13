@@ -85,11 +85,34 @@ button.tab--selected {
 
 /* Card */
 .card {
-  background-color: hsl(15, 100%, 70%);
   color: hsl(236, 100%, 87%);
   border-radius: 0.875rem;
   display: grid;
   grid-template-columns: 1fr;
+}
+
+.card.work {
+  background-color: hsl(15, 100%, 70%);
+}
+
+.card.play {
+  background-color: hsl(195, 74%, 62%);
+}
+
+.card.study {
+  background-color: hsl(348, 100%, 68%);
+}
+
+.card.exercise {
+  background-color: hsl(145, 58%, 55%);
+}
+
+.card.social {
+  background-color: hsl(264, 64%, 52%);
+}
+
+.card.self-care {
+  background-color: hsl(43, 84%, 65%);
 }
 
 .card-icon {

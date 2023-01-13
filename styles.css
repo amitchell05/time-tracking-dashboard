@@ -9,6 +9,7 @@ body {
   color: hsl(236, 100%, 87%);
   font-family: "Rubik", sans-serif;
   font-size: 16px;
+  min-height: 100vh;
 }
 
 /* Time Tracker Dashboard */
@@ -37,9 +38,10 @@ body {
 button {
   background-color: unset;
   border: none;
-  color: hsl(236, 100%, 87%);
+  color: hsl(235, 45%, 61%);
   font-family: "Rubik", sans-serif;
   font-size: 1.125rem;
+  font-weight: 300;
 }
 
 button:hover {
@@ -73,7 +75,11 @@ button.tab--selected {
 }
 
 .profile-card ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
   list-style-type: none;
+  grid-gap: 0.625rem;
 }
 
 .profile-card img {
@@ -81,6 +87,15 @@ button.tab--selected {
   border-radius: 50%;
   width: 4.5rem;
   height: 4.5rem;
+}
+
+@media (min-width: 47.938rem) {
+  .profile-card ul {
+    grid-template-columns: unset;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    justify-items: left;
+    grid-gap: 0.938rem;
+  }
 }
 
 /* Card */

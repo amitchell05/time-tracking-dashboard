@@ -11,32 +11,29 @@ body {
   font-size: 16px;
 }
 
-/* Time Tracker Dashboard + Layout */
+/* Time Tracker Dashboard */
 #timeTrackerDashboard {
   margin: 5rem 1.5rem;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
 }
 
-/* Panel layout */
 #timeTrackerDashboard,
 .panel {
   gap: 1.875rem;
 }
 
-.panel {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
+@media (min-width: 47.938rem) {
+  #timeTrackerDashboard {
+    grid-template-columns: 1fr 3fr;
+  }
 
-@media (max-width: 47.938rem) {
-  #timeTrackerDashboard,
   .panel {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Shared card/panel styles */
+/* Button */
 button {
   background-color: unset;
   border: none;
@@ -49,16 +46,30 @@ button:hover {
   cursor: pointer;
 }
 
-.profile-card,
-.card-body {
-  background-color: hsl(235, 46%, 20%);
-  border-radius: 0.875rem;
-  padding: 1.5rem;
+/* Panel */
+.panel {
+  display: grid;
 }
 
 /* Profile Card */
 button.tab--selected {
   color: hsl(0, 0%, 100%);
+}
+
+.profile-card {
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 0.875rem;
+}
+
+.profile-card article,
+.profile-card nav {
+  padding: 1.5rem;
+  border-radius: 0.875rem;
+}
+
+.profile-card article {
+  background-color: hsl(246, 80%, 60%);
+  padding: 1.5rem;
 }
 
 .profile-card ul {
@@ -72,33 +83,27 @@ button.tab--selected {
   height: 4.5rem;
 }
 
-/* Cards */
+/* Card */
 .card {
-  border-radius: 0.875rem;
-}
-
-.work {
   background-color: hsl(15, 100%, 70%);
+  color: hsl(236, 100%, 87%);
+  border-radius: 0.875rem;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
-.play {
-  background-color: hsl(195, 74%, 62%);
+.card-icon {
+  display: inline-grid;
+  padding: 0 1.5rem;
+  justify-self: end;
 }
 
-.study {
-  background-color: hsl(348, 100%, 68%);
-}
-
-.exercise {
-  background-color: hsl(145, 58%, 55%);
-}
-
-.social {
-  background-color: hsl(264, 64%, 52%);
-}
-
-.self-care {
-  background-color: hsl(43, 84%, 65%);
+.card-details {
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 0.875rem;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 /* Resource: https://a11y-guidelines.orange.com/en/web/components-examples/accessible-hiding/ */

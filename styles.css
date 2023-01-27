@@ -84,9 +84,10 @@ button.tab--selected {
 
 .profile-details {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr 2fr;
   grid-gap: 1rem;
   align-items: center;
+  justify-items: center;
 }
 
 .profile-details-heading h2 {
@@ -132,6 +133,7 @@ button.tab--selected {
   border-radius: 0.875rem;
   display: grid;
   grid-template-columns: 1fr;
+  overflow: hidden;
 }
 
 .card.work {
@@ -162,11 +164,12 @@ button.tab--selected {
   display: inline-grid;
   padding: 0 1.5rem;
   justify-self: end;
+  transform: translateY(-5px);
 }
 
-/* .card-icon img {
+.card-icon img {
   height: 4.688rem;
-} */
+}
 
 .card-details {
   background-color: hsl(235, 46%, 20%);

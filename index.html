@@ -75,7 +75,8 @@
           <div class="card-details">
             <div>
               <h2 x-text="activity.title"></h2>
-              <p x-text="activity.timeframes.daily.current + 'hrs'"></p>
+              <p x-text="activity.timeframes.daily.current + 'hrs'" class="card-details--current">
+              </p>
             </div>
             <div>
               <button>
@@ -97,11 +98,11 @@
             <img :src="addSvg(activity.title)" :alt="convertTitle(activity.title) + '-icon'">
           </div>
           <div class="card-details">
-            <div>
+            <div class="card-details--current">
               <h2 x-text="activity.title"></h2>
               <p x-text="activity.timeframes.weekly.current + 'hrs'"></p>
             </div>
-            <div>
+            <div class="card-details--previous">
               <button>
                 <img src="./images/icon-ellipsis.svg" alt="ellipsis">
               </button>
@@ -123,7 +124,7 @@
           <div class="card-details">
             <div>
               <h2 x-text="activity.title"></h2>
-              <p x-text="activity.timeframes.monthly.current + 'hrs'"></p>
+              <p x-text="activity.timeframes.monthly.current + 'hrs'" class="card-details--current"></p>
             </div>
             <div>
               <button>

@@ -179,6 +179,26 @@ button.tab--selected {
   grid-template-columns: 1fr 1fr;
 }
 
+.card-details h2 {
+  font-weight: 400;
+  font-size: 1.125rem;
+}
+
+.card-details--current p {
+  font-size: 1.875rem;
+  font-weight: 300;
+}
+
+.card-details h2,
+.card-details--current p {
+  color:hsl(0, 0%, 100%);
+}
+
+.card-details--previous {
+  display: grid;
+  justify-items: end;
+}
+
 /* Resource: https://a11y-guidelines.orange.com/en/web/components-examples/accessible-hiding/ */
 
 .visually-hidden {
